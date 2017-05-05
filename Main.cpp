@@ -18,8 +18,8 @@ int main() {
 			cout << "Ingrese un numero: " << endl;
 			cin >> numeroI;
 			stringstream ss, ss2;
-			ss2 << "Los numeros malvados son: ";
-			for (int i = 0; i < numeroI; ++i)
+			cout << "Los numeros malvados son: ";
+			for (int i = 0; i <= numeroI; ++i)
 			{
 				cont = 0;
 				stringB = bitset<8>(i).to_string();
@@ -33,15 +33,22 @@ int main() {
 				}
 				if (cont % 2 == 0)
 				{
-					ss2 << i << ", ";
+					cout << i << ", ";
 				}
 			}
-			cout << ss2 << endl;
+			cout << endl;
 		} else if (resp == 2)
 		{
-			
-		} else {
-
+			int resp2, cont = 0;
+			cout << "Ingrese el tamaño de la matriz: " << endl;
+			cin >> resp2;
+			int** matriz = new int*[resp2];
+			for (int i = 0; i < resp2; i++) {
+				for (int j = 0; j < resp2; j++) {
+					matriz[i][j] = cont;
+					cont++;
+				}
+			}
 		}
 		resp = menu();
 	}
