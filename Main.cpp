@@ -1,11 +1,13 @@
 #include <iostream>
 #include <math.h>
+#include <string>
 #include <sstream>
+#include <bitset>
 
 using namespace std;
 
 int menu();
-int Convert(int);
+//int Convert(int);
 
 int main() {
 	int resp = menu();
@@ -16,14 +18,14 @@ int main() {
 			cout << "Ingrese un numero: " << endl;
 			cin >> numeroI;
 			stringstream ss, ss2;
-			ss2 = "Los numeros malvados son: ";
+			ss2 << "Los numeros malvados son: ";
 			for (int i = 0; i < numeroI; ++i)
 			{
-				ss = Convert(i);
-				stringB = ss.str();
-				for (int i = 0; i < stringB.size(); ++i)
+				cont = 0;
+				stringB = bitset<8>(i).to_string();
+				for (int j = 0; j < stringB.size(); ++j)
 				{
-					if (stringB[i] == "1")
+					if (stringB[j] == '1')
 					{
 						cont++;
 					} else {
@@ -34,12 +36,15 @@ int main() {
 					ss2 << i << ", ";
 				}
 			}
+			cout << ss2 << endl;
 		} else if (resp == 2)
 		{
 			
 		} else {
 
 		}
+		resp = menu();
+	}
 	return 0;
 }
 
@@ -53,10 +58,10 @@ int menu() {
 	return resp;
 }
 
-stringstream Convert(unsigned int val)
+/*stringstream Convert(unsigned int val)
 {
 	stringstream ss3;
-   unsigned int mask = 1 << (sizeof(int) * 8 - 1);
+    unsigned int mask = 1 << (sizeof(int) * 8 - 1);
 
    for(int i = 0; i < sizeof(int) * 8; i++)
    {
@@ -67,4 +72,4 @@ stringstream Convert(unsigned int val)
       	mask >>= 1;
    }
    return ss3;
-}
+}*/
