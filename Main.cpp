@@ -39,16 +39,36 @@ int main() {
 			cout << endl;
 		} else if (resp == 2)
 		{
-			int resp2, cont = 0;
+			int resp2, cont = 0, temp;
 			cout << "Ingrese el tamaño de la matriz: " << endl;
 			cin >> resp2;
-			int** matriz = new int*[resp2];
+			int** matrix[resp2][resp2];
 			for (int i = 0; i < resp2; i++) {
 				for (int j = 0; j < resp2; j++) {
-					matriz[i][j] = cont;
+					matrix[i][j] = cont;
 					cont++;
 				}
 			}
+			for ( int i = 0; i < resp2; i++ ) {
+		        	for ( int j = i + 1; j < resp2; j++ ) {
+		            		int tmp = matrix[i][j];
+		            		matrix[i][j] = matrix[j][i];
+		            		matrix[j][i] = tmp;
+		        	}
+		    	}
+			for ( int i = 0; i < resp2; i++ ) {
+        			for ( int j = 0; j < resp2/2; j++ ) {
+            				int tmp = matrix[i][j];
+            				matrix[i][j] = matrix[i][resp2-1-j];
+            				matrix[i][resp2-1-j] = tmp;
+        			}
+    			}
+			/*for ( int i = 0; i < resp2; i++ ) {
+                                for ( int j = 0; j < resp2; j++ ) {
+                                	cout << "["  << matrix[i][j] << "] ";
+                                }
+				cout << endl;
+                        }*/
 		}
 		resp = menu();
 	}
@@ -65,18 +85,13 @@ int menu() {
 	return resp;
 }
 
-/*stringstream Convert(unsigned int val)
+void imprimir(int matriz[][], int num)
 {
-	stringstream ss3;
-    unsigned int mask = 1 << (sizeof(int) * 8 - 1);
-
-   for(int i = 0; i < sizeof(int) * 8; i++)
-   {
-      if( (val & mask) == 0 )
-      	ss3 << "0";
-      else
-      	ss3 << "1";
-      	mask >>= 1;
-   }
-   return ss3;
-}*/
+    	if (j>1) {
+        	cout << read(i,j-1);
+    	} else if (i>1) { 
+        	read(i-1,j);
+	} else {
+    		f>>a[i][j];
+	}
+}
