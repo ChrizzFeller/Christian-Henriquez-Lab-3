@@ -42,7 +42,7 @@ int main() {
 			int resp2, cont = 0, temp;
 			cout << "Ingrese el tamaño de la matriz: " << endl;
 			cin >> resp2;
-			int** matrix[resp2][resp2];
+			int matrix[resp2][resp2];
 			for (int i = 0; i < resp2; i++) {
 				for (int j = 0; j < resp2; j++) {
 					matrix[i][j] = cont;
@@ -50,25 +50,25 @@ int main() {
 				}
 			}
 			for ( int i = 0; i < resp2; i++ ) {
-		        	for ( int j = i + 1; j < resp2; j++ ) {
-		            		int tmp = matrix[i][j];
-		            		matrix[i][j] = matrix[j][i];
-		            		matrix[j][i] = tmp;
-		        	}
-		    	}
+	        	for ( int j = i + 1; j < resp2; j++ ) {
+	            		int tmp = matrix[i][j];
+	            		matrix[i][j] = matrix[j][i];
+	            		matrix[j][i] = tmp;
+	        	}
+	    	}
 			for ( int i = 0; i < resp2; i++ ) {
-        			for ( int j = 0; j < resp2/2; j++ ) {
-            				int tmp = matrix[i][j];
-            				matrix[i][j] = matrix[i][resp2-1-j];
-            				matrix[i][resp2-1-j] = tmp;
-        			}
+    			for ( int j = 0; j < resp2/2; j++ ) {
+        				int tmp = matrix[i][j];
+        				matrix[i][j] = matrix[i][resp2-1-j];
+        				matrix[i][resp2-1-j] = tmp;
     			}
-			/*for ( int i = 0; i < resp2; i++ ) {
-                                for ( int j = 0; j < resp2; j++ ) {
-                                	cout << "["  << matrix[i][j] << "] ";
-                                }
+			}
+			for ( int i = 0; i < resp2; i++ ) {
+	            for ( int j = 0; j < resp2; j++ ) {
+	            	cout << "["  << matrix[i][j] << "] ";
+	            }
 				cout << endl;
-                        }*/
+	        }
 		}
 		resp = menu();
 	}
@@ -85,7 +85,7 @@ int menu() {
 	return resp;
 }
 
-void imprimir(int matriz[][], int num)
+/*void read(int** matriz, int num)
 {
     	if (j>1) {
         	cout << read(i,j-1);
@@ -94,4 +94,4 @@ void imprimir(int matriz[][], int num)
 	} else {
     		f>>a[i][j];
 	}
-}
+}*/
