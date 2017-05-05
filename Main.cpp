@@ -12,16 +12,15 @@ int main() {
 	while (resp != 3) {
 		if (resp == 1) {
 			int numeroI, numeroB, cont = 0;//Numero ingresado, Numero binario
+			string stringB;
 			cout << "Ingrese un numero: " << endl;
 			cin >> numeroI;
-			numeroB = Convert(numeroI);
 			stringstream ss, ss2;
 			ss2 = "Los numeros malvados son: ";
 			for (int i = 0; i < numeroI; ++i)
-				{
-				ss = "";
-				ss << i;
-				string stringB = ss.str();
+			{
+				ss = Convert(i);
+				stringB = ss.str();
 				for (int i = 0; i < stringB.size(); ++i)
 				{
 					if (stringB[i] == "1")
@@ -67,5 +66,5 @@ stringstream Convert(unsigned int val)
       	ss3 << "1";
       	mask >>= 1;
    }
-   cout << endl ;
+   return ss3;
 }
