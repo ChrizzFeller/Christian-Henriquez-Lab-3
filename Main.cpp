@@ -85,13 +85,4 @@ int menu() {
 	return resp;
 }
 
-/*void read(int** matriz, int num)
-{
-    	if (j>1) {
-        	cout << read(i,j-1);
-    	} else if (i>1) { 
-        	read(i-1,j);
-	} else {
-    		f>>a[i][j];
-	}
-}*/
+//a
